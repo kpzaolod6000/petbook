@@ -15,10 +15,11 @@ const PostCard = (props) => {
     postDate,
     postTitle,
     postMediaPictureURL,
+    id,
   } = props;
   const usrAndDate = `Posted by u/${postUsername}. ${postDate}`;
   return (
-    <Card>
+    <Card id={id}>
       <CardHeader
         avatar={<Avatar src={comunityLogoURL} />}
         title={comunityName}

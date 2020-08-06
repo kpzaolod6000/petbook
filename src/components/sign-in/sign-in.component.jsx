@@ -44,9 +44,12 @@ class SignIn extends React.Component {
       <Card variant="outlined">
         <CardContent>
           <div className="sign-in">
-            <Typography color="textPrimary">
-              <h2>I already have an account</h2>
-              <span>Sign in with your email and password</span>
+            <Typography color="textPrimary" variant="h5">
+              I already have an account
+            </Typography>
+            <br />
+            <Typography color="textPrimary" variant="body1">
+              Sign in with your email and password
             </Typography>
 
             <form onSubmit={this.handleSubmit}>

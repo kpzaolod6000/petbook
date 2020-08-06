@@ -14,7 +14,6 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import Link from "@material-ui/core/Link";
 import { Link as RLink } from "react-router-dom";
 import { Box, Button } from "@material-ui/core";
 
@@ -179,11 +178,16 @@ export default function PrimarySearchAppBar() {
               aria-label="open drawer"
             ></IconButton>
             <MenuIcon />
-            <Typography>
-              <RLink to="/" style={{ textDecoration: "none" }}>
-                <Box color="text.primary">🐕 Doggo</Box>
-              </RLink>
-            </Typography>
+            <RLink to="/" style={{ textDecoration: "none" }}>
+              <Box color="text.primary">
+                <Typography variant="h5">
+                  <span role="img" aria-label="dog">
+                    🐕
+                  </span>
+                  Doggo
+                </Typography>
+              </Box>
+            </RLink>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
