@@ -238,13 +238,6 @@ export default function PrimarySearchAppBar() {
               </IconButton>
             </div>
             <Box m={1}>
-              <RLink to="/shop">
-                <Button variant="contained" color="primary">
-                  SHOP
-                </Button>
-              </RLink>
-            </Box>
-            <Box m={1}>
               <RLink to="/signin">
                 <Button variant="contained" color="primary">
                   Sign In
