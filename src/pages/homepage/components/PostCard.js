@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { Avatar, CardMedia, Grid } from "@material-ui/core";
+import { Avatar, CardMedia } from "@material-ui/core";
 
 const PostCard = (props) => {
   const {
@@ -30,14 +30,6 @@ const PostCard = (props) => {
         </Typography>
       </CardContent>
       <CardMedia style={{ height: "500px" }} image={postMediaPictureURL} />
-      {/* <Grid
-        container
-        spacing={24}
-        justify="center"
-        // style={{ minHeight: "100vh", maxWidth: "100%" }}
-      >
-        <img src={postMediaPictureURL} width="500"></img>
-      </Grid> */}
       <CardActions>
         <Button size="small">Comments</Button>
         <Button size="small">Share</Button>

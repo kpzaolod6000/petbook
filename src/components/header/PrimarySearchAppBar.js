@@ -18,17 +18,6 @@ import Link from "@material-ui/core/Link";
 import { Link as RLink } from "react-router-dom";
 import { Box, Button } from "@material-ui/core";
 
-import { auth } from "../../../firebase/firebase.utils";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";// test
-import { selectCurrentUser } from "../../../redux/user/user.selectors";
-
-
-
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-});
-
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
   grow: {
@@ -94,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default connect(mapStateToProps)(function PrimarySearchAppBar({currentUser}) {
+export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -245,22 +234,20 @@ export default connect(mapStateToProps)(function PrimarySearchAppBar({currentUse
                 <MoreIcon />
               </IconButton>
             </div>
-            {
-              currentUser ? (
-                <Box m={1}>
-                  <Button variant="contained" color = "primary" onClick={() => auth.signOut()}>
-                    Sign out
-                  </Button>
-                </Box>)
-              : (
-                <Box m={1}>
-                  <RLink to="/signin">
-                    <Button variant="contained" color="primary">
-                      Sign In
-                    </Button>
-                  </RLink>
-                </Box>)
-            }
+            <Box m={1}>
+              <RLink to="/shop">
+                <Button variant="contained" color="primary">
+                  SHOP
+                </Button>
+              </RLink>
+            </Box>
+            <Box m={1}>
+              <RLink to="/signin">
+                <Button variant="contained" color="primary">
+                  Sign In
+                </Button>
+              </RLink>
+            </Box>
           </Toolbar>
         </AppBar>
         {renderMobileMenu}
@@ -269,4 +256,4 @@ export default connect(mapStateToProps)(function PrimarySearchAppBar({currentUse
       </React.Fragment>
     </div>
   );
-})
+}
