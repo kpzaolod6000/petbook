@@ -16,6 +16,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Link as RLink } from "react-router-dom";
 import { Box, Button } from "@material-ui/core";
+import { auth } from "../../firebase/firebase.utils";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -82,11 +83,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(user) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const { currentUser } = user;
 
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -98,6 +100,50 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(null);
   };
 
+  const showBtn = () => {
+    if (currentUser) {
+      return (
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={() => {
+            auth.signOut();
+          }}
+        >
+          SIGN OUT
+        </Button>
+      );
+    } else {
+      return (
+        <RLink to="/signin">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => {
+              console.log("signing in ..");
+            }}
+          >
+            SIGN IN
+          </Button>
+        </RLink>
+      );
+    }
+  };
+  const showName = () => {
+    if (currentUser != null) {
+      return (
+        <Button style={{ color: "#4dabf5" }} disabled>
+          {currentUser.displayName}
+        </Button>
+      );
+    } else {
+      return (
+        <Button style={{ color: "#f50057" }} disabled>
+          offline
+        </Button>
+      );
+    }
+  };
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
@@ -169,7 +215,7 @@ export default function PrimarySearchAppBar() {
   return (
     <div className={classes.grow}>
       <React.Fragment>
-        <AppBar position="fixed">
+        <AppBar position="fixed" style={{ background: "#333333" }}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -226,6 +272,7 @@ export default function PrimarySearchAppBar() {
               >
                 <AccountCircle />
               </IconButton>
+              {showName()}
             </div>
             <div className={classes.sectionMobile}>
               <IconButton
@@ -240,18 +287,12 @@ export default function PrimarySearchAppBar() {
             </div>
             <Box m={1}>
               <RLink to="/shop">
-                <Button variant="contained" color="primary">
+                <Button variant="outlined" style={{ color: "#ff9800" }}>
                   SHOP
                 </Button>
               </RLink>
             </Box>
-            <Box m={1}>
-              <RLink to="/signin">
-                <Button variant="contained" color="primary">
-                  Sign In
-                </Button>
-              </RLink>
-            </Box>
+            <Box m={1}>{showBtn()}</Box>
           </Toolbar>
         </AppBar>
         {renderMobileMenu}
