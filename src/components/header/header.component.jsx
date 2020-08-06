@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import PrimarySearchAppBar from "./../../pages/homepage/components/PrimarySearchAppBar";
+import PrimarySearchAppBar from "./PrimarySearchAppBar";
 
 import "./header.styles.scss";
 

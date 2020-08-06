@@ -1,10 +1,11 @@
 import React from "react";
 import { Link as RLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Box, Hidden, Typography } from "@material-ui/core";
+import { Grid, Box, Hidden, CardMedia } from "@material-ui/core";
 import Content from "./Content";
 import Paper from "@material-ui/core/Paper";
-// import Link from "@material-ui/core/Link";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Home() {
+  const dogURL = "https://pbs.twimg.com/media/DpKQCg1VAAUyGmu.jpg";
   const classes = useStyles();
   return (
     <Box>
@@ -34,6 +36,15 @@ export default function Home() {
               <RLink to="/Profile" style={{ textDecoration: "none" }}>
                 <Box color="text.primary">/Profile</Box>
               </RLink>
+              <Card>
+                <CardActionArea>
+                  <CardMedia
+                    style={{ height: 500, maxWidth: "300" }}
+                    image={dogURL}
+                    title="Contemplative Reptile"
+                  />
+                </CardActionArea>
+              </Card>
             </Paper>
           </Grid>
         </Hidden>
