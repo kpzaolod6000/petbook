@@ -6,7 +6,6 @@ import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 import "./sign-up.scss";
 import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
@@ -77,9 +76,12 @@ class SignUp extends React.Component {
       <Card variant="outlined">
         <CardContent>
           <div className="sign-up">
-            <Typography color="textPrimary">
-              <h2 className="title"> I do not have an account</h2>
-              <span>Sign up with your email and password</span>
+            <Typography color="textPrimary" variant="h5">
+              I do not have an account
+            </Typography>
+            <br />
+            <Typography color="textPrimary" variant="body1">
+              Sign up with your email and password
             </Typography>
             <form className="sign-up-form" onSubmit={this.handleSubmit}>
               <FormInput

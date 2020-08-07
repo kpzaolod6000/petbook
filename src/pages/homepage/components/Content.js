@@ -11,6 +11,7 @@ today = mm + "/" + dd + "/" + yyyy;
 
 const postCardList = [
   {
+    id: 1,
     comunityLogoURL:
       "https://styles.redditmedia.com/t5_2sx2i/styles/communityIcon_7fixeonxbxd41.png?width=256&s=1ecde8d0f7197fe3aa1b9d6eef5936f7401db607",
     comunityName: "unixporn",
@@ -20,6 +21,7 @@ const postCardList = [
     postMediaPictureURL: "https://i.redd.it/lqi18vjsy5f51.png",
   },
   {
+    id: 2,
     comunityLogoURL:
       "https://media.tenor.com/images/d139e96072bae377be522258f7128881/tenor.gif",
     comunityName: "animegifs",
@@ -33,8 +35,9 @@ const postCardList = [
 
 const Content = () => {
   const getPostCard = (PostObj) => {
+    console.log(PostObj);
     return (
-      <Grid item xs={12}>
+      <Grid item key={PostObj.id} xs={12}>
         <PostCard {...PostObj} />
         <br />
       </Grid>

@@ -9,10 +9,9 @@ import "./header.styles.scss";
 
 const Header = ({ currentUser }) => (
   <div className="header">
-    <PrimarySearchAppBar></PrimarySearchAppBar>
+    <PrimarySearchAppBar currentUser={currentUser}></PrimarySearchAppBar>
   </div>
 );
-
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
