@@ -1,5 +1,4 @@
 import React from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,6 +13,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+
+import { fade, makeStyles } from "@material-ui/core/styles";
 import { Link as RLink } from "react-router-dom";
 import { Box, Button } from "@material-ui/core";
 import { auth } from "../../firebase/firebase.utils";
@@ -85,12 +86,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar(user) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const { currentUser } = user;
-
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const { currentUser } = user;
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -144,6 +145,7 @@ export default function PrimarySearchAppBar(user) {
       );
     }
   };
+
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
@@ -152,7 +154,9 @@ export default function PrimarySearchAppBar(user) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
   const menuId = "primary-search-account-menu";
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -172,6 +176,7 @@ export default function PrimarySearchAppBar(user) {
     </Menu>
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
+
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
