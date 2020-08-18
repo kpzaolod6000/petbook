@@ -25,6 +25,7 @@ export const createCommunityDocument = async ({ communityName, description, topi
             description: description,
             topic: topic,
             createdAt: createdAt,
+            propietaryId: id,
             imageUrl: ''
         })
     } catch (error) {
