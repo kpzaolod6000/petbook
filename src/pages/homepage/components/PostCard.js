@@ -15,7 +15,7 @@ const PostCard = (props) => {
     postDate,
     postTitle,
     postMediaPictureURL,
-    id,
+    id
   } = props;
   const usrAndDate = `Posted by u/${postUsername}. ${postDate}`;
   return (

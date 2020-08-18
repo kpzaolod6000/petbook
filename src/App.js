@@ -8,6 +8,7 @@ import "./App.css";
 
 import HomePage from "./pages/homepage/homepage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import CommunityForm from './components/communityForm/communityForm.component';
 
 import Header from "./components/header/header.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -57,6 +58,7 @@ class App extends React.Component {
               )
             }
           />
+          <Route exact path="/community" component={CommunityForm} />
         </Switch>
       </div>
     );

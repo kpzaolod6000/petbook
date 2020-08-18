@@ -286,9 +286,9 @@ export default function PrimarySearchAppBar(user) {
               </IconButton>
             </div>
             <Box m={1}>
-              <RLink to="/shop">
+              <RLink to="/community">
                 <Button variant="outlined" style={{ color: "#ff9800" }}>
-                  SHOP
+                  COMMUNITY
                 </Button>
               </RLink>
             </Box>

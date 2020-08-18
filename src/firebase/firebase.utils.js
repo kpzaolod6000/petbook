@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/firebase-storage'
 
 const config = {
     apiKey: "AIzaSyD3bwgtrbOpKycOJrQYqPnfFufljhoUwEU",
@@ -13,7 +14,38 @@ const config = {
     measurementId: "G-Y4DHCPGLE3"
   };
 
-//userAuth es el objeto que nos devuelve firebase cuando logeamos, deslogeamos..
+export const createCommunityDocument = async ({ communityName, description, topic, image },{id}) => {
+    
+    const createdAt = new Date();
+    const collectionRef = firestore.collection('communities');
+    const communityRef = collectionRef.doc();
+    try{
+        await communityRef.set({
+            name: communityName,
+            description: description,
+            topic: topic,
+            createdAt: createdAt,
+            imageUrl: ''
+        })
+    } catch (error) {
+        console.log('Error while creating community document');
+    }
+
+
+    const storageRef = firestorage.ref();
+    const imageRef = storageRef.child(image.name);
+    await imageRef.put(image).then(() => {
+        console.log("Image uploaded "+image.name);
+    })
+    const imageUrl = await imageRef.getDownloadURL();
+
+    await communityRef.update({
+        imageUrl: imageUrl
+    })
+    
+}
+
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
 
@@ -45,6 +77,7 @@ firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const firestorage = firebase.storage();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt: 'select_account'});
