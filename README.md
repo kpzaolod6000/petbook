@@ -54,10 +54,16 @@ Este estilo de programación es usado en la función encargada de la autenticaci
 Igualmente, este estilo de programación es usado en general en todo el proyecto, mediante funciones anónimas y callbacks.
 
 ### Módulo de comunidad
+#### Codegolf
+#### Kick Forward
 
 ### Módulo de publicaciones
+#### Codegolf
+#### Kick Forward
 
 ### Módulo de comentarios
+#### Codegolf
+#### Kick Forward
 
 ## Principios S.O.L.I.D aplicados
 ### S — Single Responsibility
