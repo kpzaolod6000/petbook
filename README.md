@@ -15,24 +15,49 @@
 <br />
 
 ## Próposito del proyecto
-
+Desarrollar una red social que permita a los usuarios crear comunidades, y compartir
+experiencias generando diversas interacción entre personas, quienes son amante
+mascotas , y que además estos podrán aportar diversos tema como consejos sobre el
+cuidado general cualquier especie de mascota.
 ## Funcionalidades
-
+● Permitir el acceso a la página web por medio de la creación de un perfil de usuario.<br />
+● El sistema debe permitir que el usuario pueda realizar una búsqueda de comunidades.<br />
+● El sistema permitirá al usuario el poder visualizar las diferente publicaciones de sus respectivas
+comunidades, que además se podrán filtrar(publicaciones recientes primero, etc)<br />
+● El sistema debe proveer a todo usuario registrado( en una comunidad o no) la capacidad de agregar
+una mascota a su perfil, de modo que se requerirá un formulario completo para ello.<br />
+● Permitir el inicio de sesión para usuarios registrados, donde se validará que efectivamente los datos
+ingresados sean correctos.<br />
+● Búsqueda y visualización de un perfil de diferentes usuarios dentro de la página web.<br />
+● Dar la facilidad de que un usuario pueda crear su propia comunidad.<br />
+● Permitir el registro o suscripción de un usuario a una comunidad, así como abandonar dicha comunidad<br />
+● El sistema permite que cada usuario registrado tenga el libre acceso a la comunicación por medio de
+los comentarios<br />
+● El sistema da a conocer las diferentes publicaciones en tendencias por un periodo de tiempo, basados
+en la cantidad de “Me Gusta” y cantidad de comentarios.<br />
+● Permitir ver la cantidad de usuarios conectados en cualquier momento, con la opción de poder ver la
+lista de dichos usuarios.<br />
+● El sistema da a conocer las comunidades más activas, estas son organizadas de acuerdo a la cantidad
+de integrantes, para más facilidad se provee el buscador de comunidades.<br />
+● El sistema debe permitir a los usuarios realizar publicaciones en una comunidad.<br />
 ## Práctica de código legible aplicadas
-
+Para las prácticas de código legible se hizo uso de una extensión de Visual Studio Code llamada Prettier, la cual de manera automática le da formato al código que escribimos.
 ## Estilos de programacion aplicados
-### Codegolf
-```javascript
-console.table(undefined)
-```
-### Bulletin Board
-```javascript
-console.table(undefined)
-```
-### Comentarios
-```javascript
-console.table(undefined)
-```
+### Módulo de inicio de sesión y registro
+#### Codegolf
+Este estilo de programación es usado en general en todo el proyecto, gracias al SDK de Firebase.
+
+#### Bulletin Board
+Este estilo de programación es usado en la función encargada de la autenticación.
+
+#### Kick Forward
+Igualmente, este estilo de programación es usado en general en todo el proyecto, mediante funciones anónimas y callbacks.
+
+### Módulo de comunidad
+
+### Módulo de publicaciones
+
+### Módulo de comentarios
 
 ## Principios S.O.L.I.D aplicados
 ### S — Single Responsibility
