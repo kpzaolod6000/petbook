@@ -15,8 +15,8 @@ import Comment from "./Comment";
 
 const PostCard = (props) => {
   const {
-    comunityLogoURL,
-    comunityName,
+    communityLogoURL,
+    communityName,
     postUsername,
     postDate,
     postTitle,
@@ -31,8 +31,8 @@ const PostCard = (props) => {
   return (
     <Card id={id}>
       <CardHeader
-        avatar={<Avatar src={comunityLogoURL} />}
-        title={comunityName}
+        avatar={<Avatar src={communityLogoURL} />}
+        title={communityName}
         subheader={usrAndDate}
       />
       <CardContent>

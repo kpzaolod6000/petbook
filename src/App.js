@@ -10,6 +10,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import CommunityForm from './components/community-form/communityForm.component';
 import CommunityList from './components/community-list/community-list.component';
+import PostForm from './components/post-form/post-form.component';
 
 import Header from "./components/header/header.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -58,6 +59,7 @@ class App extends React.Component {
               )
             }
           />
+          <Route exact path="/submit" component={PostForm} />
           <Route exact path="/community" component={CommunityList} />
           <Route exact path="/community/form" component={CommunityForm} />
         </Switch>

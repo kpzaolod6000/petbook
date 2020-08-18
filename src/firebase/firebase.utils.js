@@ -36,40 +36,78 @@ export const subscribeUserToCommunity = async (userId, communityId) => {
   }
 };
 
-export const createCommunityDocument = async (
-  { communityName, description, topic, image },
-  { id }
-) => {
-  if (!id) return;
+export const createPostDocument = async (postTitle, communityId, image, communityName, userId, displayName) => {
+    if(!userId) return;
+    
+    const createdAt = new Date();
 
-  const createdAt = new Date();
-  const collectionRef = firestore.collection("communities");
-  const communityRef = collectionRef.doc();
-  try {
-    await communityRef.set({
-      name: communityName,
-      description: description,
-      topic: topic,
-      createdAt: createdAt,
-      propietaryId: id,
-      imageUrl: "",
-      members: 0,
-    });
-  } catch (error) {
-    console.log("Error while creating community document");
-  }
+    const postsRef = firestore.collection('posts');
+    const postRef = postsRef.doc();
 
-  const storageRef = firestorage.ref();
-  const imageRef = storageRef.child(image.name);
-  await imageRef.put(image).then(() => {
-    console.log("Image uploaded " + image.name);
-  });
-  const imageUrl = await imageRef.getDownloadURL();
+    try{
+        await postRef.set({
+            postTitle: postTitle,
+            communityId: communityId,
+            communityName: communityName,
+            userId: userId,
+            displayName: displayName,
+            createdAt: createdAt,
+            imageUrl: '',
+            noComments: 0,
+            comments: []
+        })
+    } catch (error) {
+        console.log('Error while creating post document')
+    }
 
-  await communityRef.update({
-    imageUrl: imageUrl,
-  });
-};
+    const imageUrl = await uploadImage(image);
+
+    await postRef.update({
+        imageUrl: imageUrl
+    })
+}
+
+export const createCommunityDocument = async ({ communityName, description, topic, image },{id}) => {
+
+    if(!id) return;
+    
+    const createdAt = new Date();
+    const collectionRef = firestore.collection('communities');
+    const communityRef = collectionRef.doc();
+    try{
+        await communityRef.set({
+            name: communityName,
+            description: description,
+            topic: topic,
+            createdAt: createdAt,
+            propietaryId: id,
+            imageUrl: '',
+            members: 0
+        })
+    } catch (error) {
+        console.log('Error while creating community document');
+    }
+
+
+    const imageUrl = await uploadImage(image);
+
+    await communityRef.update({
+        imageUrl: imageUrl
+    })
+    
+}
+
+const uploadImage = async (image) => {
+    const storageRef = firestorage.ref();
+    const imageRef = storageRef.child(image.name);
+    await imageRef.put(image).then(() => {
+        console.log("Image uploaded "+image.name);
+    })
+    const imageUrl = await imageRef.getDownloadURL();
+
+    return imageUrl;
+}
+
 
 export const createPostDocument_i = async (postDetails) => {
   console.log(
@@ -112,6 +150,24 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
+
+export const getCommunitiesFromUser = async (userId) => {
+    const userRef = firestore.doc('users/'+userId);
+    const userSubscriptions = (await userRef.get()).data().subscriptions;
+
+    const communities = await getCommunities();
+
+    var communitiesFromUser = [];
+
+    communities.forEach(community => {
+        if(userSubscriptions.includes(community.id)) {
+            communitiesFromUser.push(community);
+        }
+    })
+
+    return communitiesFromUser;
+
+}
 
 firebase.initializeApp(config);
 

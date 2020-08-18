@@ -2,7 +2,7 @@ import React from "react";
 import { Link as RLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Box, Hidden, CardMedia } from "@material-ui/core";
-import Content from "./Content";
+import Content from "../../../components/user-post/Content";
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";

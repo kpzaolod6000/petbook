@@ -1,5 +1,5 @@
 import React from "react";
-import PostCard from "./PostCard";
+import PostCard from "../../../components/user-post/PostCard";
 import { Grid } from "@material-ui/core";
 
 let today = new Date();
@@ -12,9 +12,9 @@ today = mm + "/" + dd + "/" + yyyy;
 const postCardList = [
   {
     id: 1,
-    comunityLogoURL:
+    communityLogoURL:
       "https://styles.redditmedia.com/t5_2sx2i/styles/communityIcon_7fixeonxbxd41.png?width=256&s=1ecde8d0f7197fe3aa1b9d6eef5936f7401db607",
-    comunityName: "unixporn",
+    communityName: "unixporn",
     postUsername: "PettoBukko_usr_xx",
     postDate: today,
     postTitle: "[Awesome] Afternoon In A Perfect World",
@@ -22,9 +22,9 @@ const postCardList = [
   },
   {
     id: 2,
-    comunityLogoURL:
+    communityLogoURL:
       "https://media.tenor.com/images/d139e96072bae377be522258f7128881/tenor.gif",
-    comunityName: "animegifs",
+    communityName: "animegifs",
     postUsername: "PettoBukko_usr_yy",
     postDate: today,
     postTitle: "Mood",
