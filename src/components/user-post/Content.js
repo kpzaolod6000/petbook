@@ -2,12 +2,7 @@ import React from "react";
 import PostCard from "./PostCard";
 import { Grid } from "@material-ui/core";
 
-let today = new Date();
-let dd = String(today.getDate()).padStart(2, "0");
-let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-const yyyy = today.getFullYear();
-
-today = mm + "/" + dd + "/" + yyyy;
+const today = new Date().toISOString().split("T")[0];
 
 const postCardList = [
   {
@@ -19,6 +14,36 @@ const postCardList = [
     postDate: today,
     postTitle: "[Awesome] Afternoon In A Perfect World",
     postMediaPictureURL: "https://i.redd.it/lqi18vjsy5f51.png",
+    comments: [
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+    ],
   },
   {
     id: 2,
@@ -30,12 +55,35 @@ const postCardList = [
     postTitle: "Mood",
     postMediaPictureURL:
       "https://i.pinimg.com/originals/24/40/8d/24408dbd5bf503ba838e5b9a65bd14e7.gif",
+    comments: [
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+      {
+        id: Math.random().toString(),
+        userId: Math.random().toString(),
+        username: Math.random().toString(36).substring(4),
+        date: new Date(),
+        msg: Math.random().toString(36).substring(1),
+      },
+    ],
   },
 ];
 
 const Content = () => {
   const getPostCard = (PostObj) => {
-    console.log(PostObj);
+    // console.log(PostObj);
     return (
       <Grid item key={PostObj.id} xs={12}>
         <PostCard {...PostObj} />
