@@ -1,57 +1,92 @@
-## Estilos de Programación
+# Petbook
 
-### Iniciar Sesión y Registrarse
+## Lenguajes y herramientas:
 
-Para este módulo se usaron los siguientes estilos de programación:
+[<img align="left" alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />][html5]
+[<img align="left" alt="CSS3" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />][css3]
+[<img align="left" alt="Sass" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png" />][sass]
+[<img align="left" alt="React" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />][react]
+[<img align="left" alt="Mui" width="26px" src="https://redux.js.org/img/redux.svg" />][redux]
+[<img align="left" alt="Node.js" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" />][nodejs]
+[<img align="left" alt="Firebase" width="26px" src="https://miro.medium.com/max/300/1*R4c8lHBHuH5qyqOtZb3h-w.png" />][firebase]
+[<img align="left" alt="Git" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" />][git]
+[<img align="left" alt="Mui" width="26px" src="https://material-ui.com/static/logo_raw.svg" />][mui]
+<br />
+<br />
 
-#### Codegolf
-#### Bulletin Board
-#### 
+## Próposito del proyecto
+
+## Funcionalidades
+
+## Práctica de código legible aplicadas
+
+## Estilos de programacion aplicados
+### Codegolf
+```javascript
+console.table(undefined)
+```
+### Bulletin Board
+```javascript
+console.table(undefined)
+```
+### Comentarios
+```javascript
+console.table(undefined)
+```
+
+## Principios S.O.L.I.D aplicados
+### S — Single Responsibility
+Cada componente que utilizamos maneja una serie de responsabilidades que no implica a otro
+
+### O — Open-Closed
+```javascript
+console.table(undefined)
+```
+### L — Liskov Substitution
+```javascript
+console.table(undefined) cube, rec
+```
+
+### I — Interface Segregation
+Cuando una clase tiene que cumplir muchos propositos
+
+### D — Dependency Inversion
 
 
+## Conceptos DDD aplicados
+### Lenguaje Ubicuo: Ubiquitous Language
+```javascript
+export const getCommunities = async () => {
+  const communitiesRef = firestore.collection("communities");
+  ...
+  
+export const subscribeUserToCommunity = async (userId, communityId) => {
+  const userRef = firestore.doc("users/" + userId);
+  ...
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  ...
+```
+### Entidades (Entities).
+En esta aplicacion los usuarios son las entidades, junto con las publicaciones y los comentarios que esta puede tener ya que todas estas mantienen un estado y comportamiento mas allá. 
 
+### Objetos de valor (Value Objects).
+Los tokens que utilizamos para iniciar o cerrar sesion
 
+### Módulos (Modules).
+Agrupando un numero de clases o componentes de react formamos modulos que luego podemos utilizarlos en conjunto para alguna funcionalidad.
 
+### Agregados (Aggregates).
+Los datos de la comunidad, post y multiples usuarios. Toda esa informacion se encuentra en los Posts ya que estas entidades son dependientes entre ella.
 
-
-
-
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
+[redux]: https://redux.js.org/
+[git]: https://git-scm.com/
+[firebase]: https://firebase.google.com/
+[nodejs]: https://nodejs.org/en/
+[react]: https://reactjs.org/
+[javascript]: https://www.javascript.com/
+[sass]: https://sass-lang.com/
+[css3]: https://developer.mozilla.org/en-US/docs/Archive/CSS3
+[html5]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+[mui]: https://material-ui.com/
