@@ -74,7 +74,7 @@ class CommunityForm extends React.Component {
                 name="communityName"
                 value={communityName}
                 onChange={this.handleChange}
-                label="Community name..."
+                label="Community name"
                 required
               />
               <FormInput
@@ -82,7 +82,7 @@ class CommunityForm extends React.Component {
                 name="description"
                 value={description}
                 onChange={this.handleChange}
-                label="Description about your community..."
+                label="Description about your community"
                 required
               />
               <FormSelect
@@ -91,16 +91,19 @@ class CommunityForm extends React.Component {
                 handleChange = {this.handleChange}
                 options = {[
                     {
-                        value: 'dog', label:'Dogs'
+                        value: 'dog', label:'Dogs 🐕'
                     },
                     {
-                        value: 'cat', label:'Cats'
+                        value: 'cat', label:'Cats 🐈'
                     },
                     {
-                        value: 'parrot', label:'Parrots'
+                        value: 'parrot', label:'Parrots 🦉'
                     },
                     {
-                        value: 'other', label:'Other'
+                      value: 'hamster', label:'Hamsters 🐹'
+                    },
+                    {
+                        value: 'other', label:'Other 🦖'
                     }
                 ]}
                 label = 'Main Topic'

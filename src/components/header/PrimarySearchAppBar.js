@@ -228,9 +228,9 @@ export default function PrimarySearchAppBar(user) {
               <Box color="text.primary">
                 <Typography variant="h5">
                   <span role="img" aria-label="dog">
-                    🐕
+                    
                   </span>
-                  Doggo
+                  Petbook
                 </Typography>
               </Box>
             </RLink>

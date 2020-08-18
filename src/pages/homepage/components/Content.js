@@ -35,7 +35,6 @@ const postCardList = [
 
 const Content = () => {
   const getPostCard = (PostObj) => {
-    console.log(PostObj);
     return (
       <Grid item key={PostObj.id} xs={12}>
         <PostCard {...PostObj} />

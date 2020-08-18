@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import 'firebase/firebase-storage'
+import 'firebase/firebase-storage';
 
 const config = {
     apiKey: "AIzaSyD3bwgtrbOpKycOJrQYqPnfFufljhoUwEU",
@@ -14,7 +14,31 @@ const config = {
     measurementId: "G-Y4DHCPGLE3"
   };
 
+export const getCommunities = async () => {
+    const communitiesRef = firestore.collection('communities');
+    const communities = (await (await communitiesRef.get()).docs).map( el => ({id: el.id, ...el.data()}));
+    console.log(communities)
+    return communities;
+}
+
+export const subscribeUserToCommunity = async (userId, communityId) => {
+    
+    const userRef = firestore.doc('users/'+userId);
+    const userSubscriptions = (await userRef.get()).data().subscriptions;
+    
+    if(!(userSubscriptions.includes(communityId))) {
+        userSubscriptions.push(communityId);
+        userRef.update({
+            subscriptions: userSubscriptions
+        })
+    }
+    
+    
+}
+
 export const createCommunityDocument = async ({ communityName, description, topic, image },{id}) => {
+
+    if(!id) return;
     
     const createdAt = new Date();
     const collectionRef = firestore.collection('communities');
@@ -26,7 +50,8 @@ export const createCommunityDocument = async ({ communityName, description, topi
             topic: topic,
             createdAt: createdAt,
             propietaryId: id,
-            imageUrl: ''
+            imageUrl: '',
+            members: 0
         })
     } catch (error) {
         console.log('Error while creating community document');
@@ -63,6 +88,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 displayName,
                 email,
                 createdAt,
+                subscriptions: [],
                 ...additionalData
             });
         } catch (error) {

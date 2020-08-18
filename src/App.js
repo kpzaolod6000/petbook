@@ -8,7 +8,8 @@ import "./App.css";
 
 import HomePage from "./pages/homepage/homepage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import CommunityForm from './components/communityForm/communityForm.component';
+import CommunityForm from './components/community-form/communityForm.component';
+import CommunityList from './components/community-list/community-list.component';
 
 import Header from "./components/header/header.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -21,7 +22,6 @@ class App extends React.Component {
     const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      console.log(userAuth);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -58,7 +58,8 @@ class App extends React.Component {
               )
             }
           />
-          <Route exact path="/community" component={CommunityForm} />
+          <Route exact path="/community" component={CommunityList} />
+          <Route exact path="/community/form" component={CommunityForm} />
         </Switch>
       </div>
     );
