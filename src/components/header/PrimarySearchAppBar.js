@@ -297,6 +297,13 @@ export default function PrimarySearchAppBar(user) {
                 </Button>
               </RLink>
             </Box>
+            <Box m={1}>
+              <RLink to="/submit">
+                <Button variant="outlined" style={{ color: "#7f9100" }}>
+                  POST
+                </Button>
+              </RLink>
+            </Box>
             <Box m={1}>{showBtn()}</Box>
           </Toolbar>
         </AppBar>
