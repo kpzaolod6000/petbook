@@ -54,6 +54,9 @@ Este estilo de programación es usado en la función encargada de la autenticaci
 Igualmente, este estilo de programación es usado en general en todo el proyecto, mediante funciones anónimas y callbacks.
 
 ### Módulo de comunidad
+### Pipeline
+Funciones las cuales reciben datos sin compartir y devolver en otra
+
 
 ### Módulo de publicaciones
 
