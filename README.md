@@ -6,7 +6,32 @@ Para este módulo se usaron los siguientes estilos de programación:
 
 #### Codegolf
 #### Bulletin Board
-#### 
+Aquella clase que realiza un procedimiento de una acccion enviada por el firebase por medio de listener
+
+Ejemplo:
+
+class App extends React.Component {
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    const { setCurrentUser } = this.props;
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+        });
+      } else {
+        setCurrentUser(userAuth);
+      }
+    });
+  }
+####  
 
 
 
